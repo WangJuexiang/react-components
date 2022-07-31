@@ -1,47 +1,39 @@
 import React from "react";
-import Children from "./component/children";
+import MainButton from "./component/index";
 
 class App extends React.Component {
 
   constructor() {
     super()
     this.state = {
-      name: "father",
-      txt: "父组件的默认值"
+      status: "waiting",
+      description: "待确认"
     }
   }
 
-  //方法：修改父组件的状态
   handleClick = () => {
     this.setState({
-      name: "thougthworks"
+      status: "finished"
     })
   }
 
-  //方法：接收子组件传的值,修改state
-
-  cFunc = (e) => {
-    console.log(e)
+  changeDescription = (e) => {
     this.setState({
-      txt: "修改后"
+      description: "已确认"
     })
   }
 
   render() {
     return (
       <div>
-        <h1>React传值</h1>
-        <h2>父组件向子组件传值</h2>
-        <h3>子组件向父组件传值</h3>
-        <div>-----分割线-----</div>
+        <h1>控制台</h1>
 
-        <Children
-          name={this.state.name}
-          // 通过事件传递的时候，this的指向已经改变——需用bind绑定
-          cFunc={this.cFunc.bind(this)} >
-        </Children>
+        <MainButton
+          status={this.state.status}
+          changeDescription={(e) => this.changeDescription} >
+        </MainButton>
         <button onClick={this.handleClick}>按钮</button>
-        <h2>父组件，接收子组件回传的值:{this.state.txt}</h2>
+        <h2>是否确认:{this.state.description}</h2>
       </div>
 
     )
