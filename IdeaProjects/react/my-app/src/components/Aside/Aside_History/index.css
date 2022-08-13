@@ -1,0 +1,17 @@
+.aside-history {
+	margin-top: 300px;
+	margin-left: 20px;
+	color: #ccc
+}
+
+.aside-history-ul {
+	color: #999
+}
+
+a:link {
+	color: #999;
+}
+
+a:visited {
+	color: #999;
+}

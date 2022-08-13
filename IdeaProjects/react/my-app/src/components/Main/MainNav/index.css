@@ -1,0 +1,35 @@
+.main-nav {
+	width: 1030px;
+	height: 42px;
+	background-color: #FFFFFF;
+}
+
+.main-nav-button {
+	display: flex;
+}
+
+.main-nav-button-all {
+	width: 100px;
+}
+
+.main-nav-button-physical {
+	width: 100px;
+}
+
+.main-nav-button-virtual {
+	width: 100px;
+}
+
+.main-nav-input {
+	padding-left: 120px;
+	width: 600px
+}
+
+.main-nav-version {
+	margin-top: 10px;
+	margin-left: 100px
+}
+
+.left-right-version {
+	margin-left: 20px;
+}

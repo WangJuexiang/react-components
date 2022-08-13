@@ -1,0 +1,45 @@
+.form-figure {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 300px;
+	background-color: #FFFFFF;
+}
+
+.main-header-statistics {
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+}
+
+.main-header-statistics-all {
+	margin-left: 20px;
+	margin-top: 20px;
+	text-align: center
+}
+
+.main-header-statistics-all-figure {
+	margin-top: 30px;
+	font-size: 20px;
+
+}
+
+.main-header-statistics-physical {
+	text-align: center;
+	margin-top: 20px
+}
+
+.main-header-statistics-physical-figure {
+	margin-top: 30px;
+	font-size: 20px
+}
+
+.main-header-statistics-virtual {
+	text-align: center;
+	margin-top: 20px;
+	margin-right: 20px
+}
+
+.main-header-statistics-virtual-figure {
+	margin-top: 30px;
+	font-size: 20px
+}

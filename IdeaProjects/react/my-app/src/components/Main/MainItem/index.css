@@ -1,0 +1,96 @@
+.main-item {
+	display: flex;
+	margin-top: 20px;
+	height: 100px;
+	width: 1030px;
+	background-color: #FFFFFF;
+	/* z-index: 1; */
+
+}
+
+.main-item-img {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px
+}
+
+.main-item-content {
+	width: 300px;
+	margin-left: 30px
+}
+
+.main-item-info {
+	width: 1100px;
+	display: flex;
+	margin-top: 10px;
+	height: 45px
+}
+
+.main-item-info-url {
+	display: flex
+}
+
+.main-item-info-urltext {
+	margin-left: 10px
+}
+
+.main-item-info-status {
+	width: 70px;
+	height: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+
+	margin-left: 30px;
+	margin-right: 150px;
+	text-align: center
+}
+
+#main-item-info-status-greencolor {
+	background-color: #7FBC39;
+}
+
+#main-item-info-status-orangecolor {
+	background-color: #FF9A2A;
+}
+
+.main-item-info-ip {
+	display: flex;
+	margin-right: 20px
+}
+
+.main-item-info-iptext {
+	margin-left: 10px;
+	margin-right: 10px
+}
+
+.main-item-info-location {
+	display: flex;
+
+}
+
+.main-item-info-locationtext {
+	width: 200px;
+	margin-left: 10px;
+
+
+	float: right;
+
+}
+
+.main-item-browser {
+	position: relative;
+	width: 900px;
+	display: flex;
+
+}
+
+.main-item-addbutton {
+	margin-left: -2px;
+	background-color: #00B4CF;
+
+}
+
+.main-item-deletebutton {
+	background-color: #00B4CF;
+	margin-left: auto
+}
