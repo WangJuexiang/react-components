@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import "./statistics.css"
+// import store from '../../../../redux/store';
+import "./index.css"
 
 
 export default class MainHeaderStatistics extends Component {
 	render() {
+
+		// const { browserItems } = store.getState();
+		// const physicalBrowserItems = browserItems.filter((browserItem) => {
+		// 	return !browserItem.form
+		// })
+		// const virtualBrowserItems = browserItems.filter((browserItem) => {
+		// 				return browserItem.form
+		// 			})
+
 		return (
 			<div>
 				<div className='main-header-statistics'>

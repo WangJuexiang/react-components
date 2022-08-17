@@ -1,40 +1,65 @@
 import React, { Component } from 'react';
 import Popup from './Popup';
 import BrowserIcon from './BrowserIcon';
+import store from '../../../redux/store';
+import { deleteItemAction, addPopupAction } from '../../../redux/browserlist_action';
+
 import { DesktopOutlined, ExclamationCircleOutlined, FolderOutlined, PlusOutlined, StopOutlined } from '@ant-design/icons';
 import { Image } from 'antd';
 import { Button } from 'antd';
+
 import "./index.css"
-
-
-// state = { popupVisibility: false }
-
 
 
 export default class MainItem extends Component {
 
 
 	handleClickDeny = (id) => {
-		if (window.confirm("Confirm to delete?")) {
-			this.props.deleteItems(id);
 
+		if (window.confirm("Confirm to delete?")) {
+
+			const { browserItems } = store.getState();
+
+			const newBrowserItems = browserItems.filter((browserItem) => {
+				return browserItem.id !== id;
+			});
+
+			store.dispatch(deleteItemAction(newBrowserItems))
+			console.log(newBrowserItems, id, 'denyitems')
 		}
 	}
 
+
+	handleClickAddPopup = (id, isPopupShowing) => {
+
+		const { browserItems } = store.getState();
+
+		const showPopupBrowserItems = browserItems.map((browserItemObj) => {
+			if (browserItemObj.id === id) return { ...browserItemObj, isPopupShowing: !isPopupShowing };
+			else return { ...browserItemObj, isPopupShowing: false }
+
+		});
+		console.log(showPopupBrowserItems, id, 'addpopup')
+		store.dispatch(addPopupAction(showPopupBrowserItems))
+
+	}
+
+
 	render() {
 
-		const { id, browserIcons } = this.props;
+		const { id, isPopupShowing, browserIcons, img, status } = this.props;
+
+		const { browserItems } = store.getState()
 
 
 		return (
 			<div>
-
 				<div className='main-item'>
 					<Image
 						className='main-item-img'
 						width={80}
 						height={80}
-						src={this.props.img}
+						src={img}
 					/>
 
 					<div className='main-item-content'>
@@ -48,8 +73,8 @@ export default class MainItem extends Component {
 
 							<span
 								className='main-item-info-status'
-								id={this.props.status === 'idle' ? 'main-item-info-status-greencolor' : 'main-item-info-status-orangecolor'}>
-								{this.props.status}</span>
+								id={status === true ? 'main-item-info-status-greencolor' : 'main-item-info-status-orangecolor'}>
+								{status === true ? 'idle' : 'building'}</span>
 
 							<div className='main-item-info-ip'>
 								<ExclamationCircleOutlined style={{ fontSize: '150%' }} />
@@ -64,19 +89,27 @@ export default class MainItem extends Component {
 						</div>
 						<div className='main-item-browser'>
 
-							<Button className='main-item-addbutton' type="primary" shape="default" size='small' icon={<PlusOutlined />} />
+							<Button className='main-item-addbutton' onClick={() => this.handleClickAddPopup(id, isPopupShowing)} type="primary" shape="default" size='small' icon={<PlusOutlined />} />
 
+							<span>
+								{
+									browserIcons.length !== 0 &&
 
-							<BrowserIcon browserName={'Firefox'} />
-							<BrowserIcon browserName={'Safari'} />
-							<BrowserIcon browserName={'Ubuntu'} />
-							<BrowserIcon browserName={'Chrome'} />
+									browserIcons.map(browserIcon => {
+										return <BrowserIcon key={browserIcon.id} {...browserIcon} parentId={id} />
+									})
+								}
+							</span>
+
 
 							<Button className='main-item-deletebutton' onClick={() => this.handleClickDeny(id)} type="primary" size='middle' icon={<StopOutlined />} >
 								Deny
 							</Button>
 
-							<Popup />
+							{isPopupShowing &&
+
+								<Popup id={id} isPopupShowing={isPopupShowing} />
+							}
 						</div>
 
 					</div>

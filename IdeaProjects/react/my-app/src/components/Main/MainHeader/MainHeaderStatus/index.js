@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./status.css"
+import "./index.css"
 
 export default class MainHeaderStatus extends Component {
 	render() {

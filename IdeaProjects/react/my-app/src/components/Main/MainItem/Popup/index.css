@@ -1,4 +1,17 @@
-.popup {
+.popup-show {
+	position: absolute;
+	width: 500px;
+	height: 150px;
+	margin-top: 40px;
+	margin-left: -20px;
+	background-color: #FFFFFF;
+	border: 1px solid #00B4CF;
+	box-shadow: 0 3 5px(#000 30%);
+	z-index: 1;
+	display: block;
+}
+
+/* .popup-default {
 	position: absolute;
 	width: 500px;
 	height: 120px;
@@ -9,8 +22,7 @@
 	box-shadow: 0 3 5px(#000 30%);
 	z-index: 1;
 	display: none;
-
-}
+} */
 
 .popup-triangle {
 	position: relative;

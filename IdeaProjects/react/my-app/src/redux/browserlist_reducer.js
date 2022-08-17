@@ -1,95 +1,144 @@
+import { nanoid } from "nanoid";
+import Windows from '../img/windows.png';
+import Ubuntu from '../img/ubuntu.png';
+import Debin from '../img/debin.png';
+import Suse from '../img/suse.png';
+import CentOS from '../img/cent_os.png';
 const initState = {
+
 	browserItems: [
 		{
-			id: '001',
+			id: '01',
+			name: 'bjstdmngbgr01.thoughtworks.com',
+			img: Windows,
 			//form:true-physical,false-virtual
 			form: true,
 			//status:true-idle, false-building
 			status: true,
-			//isPopupShowing:true-visible, false-invisible
 			isPopupShowing: false,
 			ip: "192.168.1.101",
 			url: "bjstdmngbgr01.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
 			//["Chrome,"Firefox","Safari","Ubuntu"]
-			browserIcons: ['Chrome', 'Firefox', 'Safari', 'Ubuntu'],
+			browserIcons: [
+				{
+					id: nanoid(),
+					name: 'Chrome',
+				},
+
+				// {
+				// 	id: nanoid(),
+				// 	name: 'Firefox',
+				// 	show: false
+				// },
+
+				// {
+				// 	id: nanoid(),
+				// 	name: 'Safari',
+				// 	show: false
+				// },
+
+				// {
+				// 	id: nanoid(),
+				// 	name: 'Ubuntu',
+				// 	show: false
+				// },
+			],
 		},
 
 		{
-			id: '002',
-			//form:true-physical,false-virtual
+			id: '02',
+			name: 'bjstdmngbgr02.thoughtworks.com',
+			img: Windows,
 			form: true,
-			//status:true-idle, false-building
 			status: true,
-			//isPopupShowing:true-visible, false-invisible
 			isPopupShowing: false,
 			ip: "192.168.1.102",
 			url: "bjstdmngbgr02.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
-			//["Chrome,"Firefox","Safari","Ubuntu"]
-			// browserIcons: ['Chrome', 'Firefox', 'Safari', 'Ubuntu'],
+			browserIcons: [
+				{
+					id: nanoid(),
+					name: 'Chrome',
+				},
+			],
 		},
 
 		{
-			id: '003',
-			//form:true-physical,false-virtual
+			id: '03',
+			name: 'bjstdmngbgr03.thoughtworks.com',
+			img: Ubuntu,
 			form: false,
-			//status:true-idle, false-building
 			status: false,
-			//isPopupShowing:true-visible, false-invisible
 			isPopupShowing: false,
 			ip: "192.168.1.103",
 			url: "bjstdmngbgr03.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
-			//["Chrome,"Firefox","Safari","Ubuntu"]
-			// browserIcons: ['Chrome', 'Firefox', 'Safari', 'Ubuntu'],
+			browserIcons: [
+				{
+					id: nanoid(),
+					name: 'Chrome',
+				},
+			],
 		},
 
 		{
-			id: '004',
-			//form:true-physical,false-virtual
+			id: '04',
+			name: 'bjstdmngbgr04.thoughtworks.com',
+			img: Debin,
 			form: false,
-			//status:true-idle, false-building
 			status: false,
-			//isPopupShowing:true-visible, false-invisible
 			isPopupShowing: false,
 			ip: "192.168.1.104",
 			url: "bjstdmngbgr04.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
-			//["Chrome,"Firefox","Safari","Ubuntu"]
-			// browserIcons: ['Chrome', 'Firefox', 'Safari', 'Ubuntu'],
+			browserIcons: [
+				{
+					id: nanoid(),
+					name: 'Chrome',
+				},
+			],
 		},
 
 		{
-			id: '005',
-			//form:true-physical,false-virtual
+			id: '05',
+			name: 'bjstdmngbgr05.thoughtworks.com',
+			img: Suse,
 			form: true,
-			//status:true-idle, false-building
 			status: false,
-			//isPopupShowing:true-visible, false-invisible
 			isPopupShowing: false,
 			ip: "192.168.1.105",
 			url: "bjstdmngbgr05.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
-			//["Chrome,"Firefox","Safari","Ubuntu"]
-			// browserIcons: ['Chrome', 'Firefox', 'Safari', 'Ubuntu'],
+			browserIcons: [
+				{
+					id: nanoid(),
+					name: 'Chrome',
+				},
+			]
+			,
 		},
 
 		{
-			id: '006',
-			//form:true-physical,false-virtual
+			id: '06',
+			name: 'bjstdmngbgr06.thoughtworks.com',
+			img: CentOS,
 			form: true,
-			//status:true-idle, false-building
 			status: false,
-			//isPopupShowing:true-visible, false-invisible
 			isPopupShowing: false,
 			ip: "192.168.1.106",
 			url: "bjstdmngbgr06.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
-			//["Chrome,"Firefox","Safari","Ubuntu"]
-			// browserIcons: ['Chrome', 'Firefox', 'Safari', 'Ubuntu'],
+			browserIcons: [
+				{
+					id: nanoid(),
+					name: 'Chrome',
+				},
+			],
 		},
-	]
+	],
+
+
 };
 
 export default function browserlistReducer(preState = initState, action) {
@@ -103,9 +152,49 @@ export default function browserlistReducer(preState = initState, action) {
 			return {
 				...preState,
 				browserItems: data
+
+			};
+
+		case "addBrowserIcon":
+
+			return {
+				...preState,
+				browserIcons: data
+			};
+
+		case 'handleClickAddPopup':
+			return {
+				...preState,
+				browserItems: data
+			};
+
+		case 'handleClickClosePopup':
+			return {
+				...preState,
+				browserItems: data
+			};
+
+		case 'handleClickNav':
+			return {
+				...preState,
+				browserItems: data
+			};
+
+		case 'addBrowserIcon':
+			return {
+				...preState,
+				browserItems: data
+			};
+
+		case 'deleteBrowserIcon':
+			return {
+				...preState,
+				browserItems: data
 			};
 
 		default:
 			return preState;
+
 	}
+
 }

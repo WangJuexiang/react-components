@@ -8,6 +8,10 @@
 	display: flex;
 }
 
+.main-nav-menu {
+	height: 42px
+}
+
 .main-nav-button-all {
 	width: 100px;
 }
@@ -21,7 +25,7 @@
 }
 
 .main-nav-input {
-	padding-left: 120px;
+	padding-left: 250px;
 	width: 600px
 }
 
@@ -32,4 +36,12 @@
 
 .left-right-version {
 	margin-left: 20px;
+}
+
+.input-ul {
+	position: absolute;
+	margin-top: -7px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: lightgray;
 }

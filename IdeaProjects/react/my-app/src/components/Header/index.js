@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { DownOutlined, IdcardOutlined, ImportOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
-// import { Avatar, Image } from 'antd';
 import "./index.css";
 import Curise from "../../../src/img/curise.svg";
 import Avatar from "../../../src/img/avatar.jpg"
@@ -27,7 +26,6 @@ const menu = (
 					</a>
 				),
 				icon: <ImportOutlined />,
-				// disabled: true,
 			},
 
 

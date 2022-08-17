@@ -1,0 +1,40 @@
+事件——
+
+主页面：
+
+1. deny按钮点击事件：store中取到state，无需父子传值✅
+
+2. 数据结构：browserIcons放入browserItems中，页面显示为map browserIcons数组✅
+
+3. add按钮点击事件：
+
+数据结构存在store内✅
+将其他MainItem的state更改为默认false✅
+isPopupShowing为true时显示模态框✅
+
+
+4. All Physical Virtual按钮点击显示不同页面：父组件调用子组件的state来进行条件渲染✅
+
+5. input 搜索框关键词搜索❓(模糊查询：name，点击查找后显示match)
+
+6. 添加和删除icons ❓ （先找parentID，再找子id）
+
+
+
+
+模态框：
+
+1. 关闭按钮和cancel按钮点击：子组件点击按钮调用父组件事件，修改父组件状态isPopupShowing✅
+
+
+
+
+
+
+其他页面渲染修改：
+
+aside 组件嵌套
+
+
+
+

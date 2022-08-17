@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import store from '../../redux/store';
-import { deleteItemAction } from '../../redux/browserlist_action';
-import PropTypes from "prop-types";
+// import { deleteItemAction, addBrowserIconAction } from '../../redux/browserlist_action';
 
 import MainHeaderStatus from './MainHeader/MainHeaderStatus';
 import MainNav from './MainNav';
 import MainItem from './MainItem';
 import MainHeaderStatistics from './MainHeader/MainHeaderStatistics';
-import Windows from '../../img/windows.png';
-import Ubuntu from '../../img/ubuntu.png';
-import Debin from '../../img/debin.png';
-import Suse from '../../img/suse.png';
-import CentOS from '../../img/cent_os.png';
-import "./index.css"
 
+// import Windows from '../../img/windows.png';
+// import Ubuntu from '../../img/ubuntu.png';
+// import Debin from '../../img/debin.png';
+// import Suse from '../../img/suse.png';
+// import CentOS from '../../img/cent_os.png';
+
+import "./index.css"
 
 export default class Main extends Component {
 
@@ -23,98 +23,125 @@ export default class Main extends Component {
 		});
 	}
 
-	// static propTypes = {
-	// 	browserItems: PropTypes.array,
-	// 	deleteItem: PropTypes.func,
-	// }
-
-	deleteItem = (id) => {
-
-		const { browserItems } = store.getState();
-
-		const newBrowserItems = browserItems.filter((browserItem) => {
-			return browserItem.id !== id;
-		});
-
-		store.dispatch(deleteItemAction(newBrowserItems))
+	constructor(props) {
+		super(props);
+		this.state = {
+			getCurrentNav: 'all',
+			getCurrentKeyword: 'every'
+		}
 	}
 
+	// addBrowserIcon = (browserIcon) => {
 
+	// 	const { browsericons } = store.getState();
+	// 	const newBrowserIcons = [browserIcon, ...browsericons];
+	// 	store.dispatch(addBrowserIconAction(newBrowserIcons));
+
+	// }
+
+	getNavData = (msgNav) => {
+		this.setState({
+			getCurrentNav: msgNav
+		})
+	}
+
+	getSearchData = (msgKeyword) => {
+		this.setState({
+			getCurrentKeyword: msgKeyword
+		}
+		)
+	}
+
+	//打印测试
+	clickTest = () => {
+
+		const { browserItems } = store.getState()
+
+		console.log('父组件状态:', this.state.getCurrentNav, this.state.getCurrentKeyword, browserItems, browserItems.browserIcons,)
+	}
 
 	render() {
-		const { deleteItem } = this.props;
+		//nav条件渲染
 		const { browserItems } = store.getState();
-		console.log(browserItems, '234567890');
+
+
+		const idleBrowserItems = browserItems.filter((browserItemObj) => {
+			return browserItemObj.status === true
+		}
+		)
+
+		const buildingBrowserItems = browserItems.filter((browserItemObj) => {
+			return browserItemObj.status === false
+		}
+		)
+
+		const virtualBrowserItems = browserItems.filter((browserItemObj) => {
+			return browserItemObj.form === false
+		})
+		const physicalBrowserItems = browserItems.filter((browserItemObj) => {
+
+			return browserItemObj.form === true
+		})
+
+		//keyword条件渲染
+
+		// const windowsBrowserItems = browserItems.filter((browserItemObj) => {
+		// 	return browserItemObj.name = 'windows'
+		// },
+
+		// )
+
 		return (
 
 			<div className='main'>
 				<div className='main-header'>
 					<div className='building'>
-						<MainHeaderStatus number={"3"} text={"Building-------"} x />
+						<MainHeaderStatus number={buildingBrowserItems.length} text={"Building"} />
+
 					</div>
-					<div className='idle'>
-						<MainHeaderStatus number={"5"} text={"Idle"} />
+					{/* 点击打印测试区块  */}
+					<div className='idle' onClick={this.clickTest}>
+						<MainHeaderStatus number={idleBrowserItems.length} text={"Idle"} />
+
+
 					</div>
 					<div className='form-figure'>
 						<MainHeaderStatistics
+
 							all={"ALL"}
-							allFigure={8}
+							allFigure={browserItems.length}
 							physical={"PHYSICAL"}
-							physicalFigure={4}
+							physicalFigure={physicalBrowserItems.length}
 							virtual={"VIRTUAL"}
-							virtualFigure={4} />
+							virtualFigure={virtualBrowserItems.length} />
 					</div>
 				</div>
-				<MainNav />
+				<MainNav getNavData={this.getNavData.bind(this)} getSearchData={this.getSearchData.bind(this)} />
+
 				<div>
 					{
-						browserItems.map(browserItem => {
-							return <MainItem key={browserItem.id} {...browserItem} deleteItem={deleteItem} />
-						})
-					}
-				</div>
+						this.state.getCurrentNav === 'all' ?
 
-				{/* <MainItem
-					img={Windows}
-					url={'bjstdmngbgr01.thoughtworks.com'}
-					status={'idle'}
-					ip={'192.168.1.101'}
-					location={'/var/lib/cruise-agent'}
-				/>
-				<MainItem
-					img={Windows}
-					url={'bjstdmngbgr02.thoughtworks.com'}
-					status={'building'}
-					ip={'192.168.1.102'}
-					location={'/var/lib/cruise-agent'}
-				/>
-				<MainItem
-					img={Ubuntu}
-					url={'bjstdmngbgr03.thoughtworks.com'}
-					status={'building'}
-					ip={'192.168.1.103'}
-					location={'/var/lib/cruise-agent'}
-				/>
-				<MainItem
-					img={Debin}
-					url={'bjstdmngbgr04.thoughtworks.com'}
-					status={'building'}
-					ip={'192.168.1.104'}
-					location={'/var/lib/cruise-agent'}
-				/>
-				<MainItem
-					img={Suse}
-					url={'bjstdmngbgr05.thoughtworks.com'}
-					status={'idle'}
-					ip={'192.168.1.105'}
-					location={'/var/lib/cruise-agent'} />
-				<MainItem
-					img={CentOS}
-					url={'bjstdmngbgr06.thoughtworks.com'}
-					status={'idle'}
-					ip={'192.168.1.106'}
-					location={'/var/lib/cruise-agent'}
-				/> */}
+							browserItems.map(browserItem => {
+								return <MainItem key={browserItem.id} {...browserItem} />
+							})
+
+							:
+
+							this.state.getCurrentNav === 'physical' ?
+
+								physicalBrowserItems.map(browserItem => {
+									return <MainItem key={browserItem.id} {...browserItem} />
+								})
+
+								:
+
+								virtualBrowserItems.map(browserItem => {
+									return <MainItem key={browserItem.id} {...browserItem} />
+								})
+					}
+
+				</div>
 			</div>
 		)
 	}
