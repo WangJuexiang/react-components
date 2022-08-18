@@ -19,7 +19,6 @@ export default class Popup extends Component {
 			else return browserItemObj;
 
 		});
-		console.log(hidePopupBrowserItems, id, 'deletepopup')
 
 		store.dispatch(closePopupAction(hidePopupBrowserItems))
 	}

@@ -40,7 +40,6 @@ export default class Main extends Component {
 	// }
 
 	getNavData = (msgNav) => {
-		console.log(msgNav, "msgNav")
 		this.setState({
 			getCurrentNav: msgNav
 		})
@@ -111,7 +110,6 @@ export default class Main extends Component {
 		// 	return browserItems.includes(searchBrowserItems)
 		// });
 
-		console.log(keyWord, allSearchBrowserItems)
 
 
 		return (

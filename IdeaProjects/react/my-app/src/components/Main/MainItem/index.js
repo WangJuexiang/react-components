@@ -25,7 +25,6 @@ export default class MainItem extends Component {
 			});
 
 			store.dispatch(deleteItemAction(newBrowserItems))
-			console.log(newBrowserItems, id, 'denyitems')
 		}
 	}
 
@@ -38,7 +37,6 @@ export default class MainItem extends Component {
 			else return { ...browserItemObj, isPopupShowing: false }
 
 		});
-		console.log(showPopupBrowserItems, id, 'addpopup')
 		store.dispatch(addPopupAction(showPopupBrowserItems))
 
 	}

@@ -10,30 +10,41 @@ export default class BrowserIcon extends Component {
 
 	deleteBrowserIcon = (id, iconId, browserIcons) => {
 
-
 		const { browserItems } = store.getState()
 
-
-		//先找到点击事件发生的browserItem
-		//for/map来操作数组，不使用filter
-		const changeBrowserItem = browserItems.filter((browserItemObj) => {
-			return browserItemObj.id === id;
+		//先取到点击事件发生的changeBrowserItem
+		browserItems.map((browserItemObj) => {
+			if (browserItemObj.id === id) {
+				browserItemObj.browserIcons.pop()
+			}
 		}
-		)
 
-		//更新此browseritem的browserIcons属性
-		const updateBrowserItem = changeBrowserItem.browserIcons.filter((browserIconObj) => {
-			return browserIconObj.iconId !== iconId
-		}
 		)
+		console.log(browserItems);
+		store.dispatch(deleteBrowserIconAction(browserItems))
+
+
+		// console.log(changeBrowserItem, id, 'changeBrowserItem')
+
+
+		// 删除browserIcons属性数组中指定iconId的图标
+		// 更新此属性给changeBrowserItem
+
+		// const updateBrowseIcons = changeBrowserItem.browserIcons.map((browserIconObj) => {
+		// 	if (browserIconObj.iconId === iconId)
+		// 		return browserIconObj
+
+
+		// }
+		// )
 
 		//更新browserItems数组：updatebrowserItem替换changebrowseritem
 
-		let changeBrowserItemIndex = browserItems.indexOf(changeBrowserItem)
+		// let changeBrowserItemIndex = browserItems.indexOf(changeBrowserItem)
 
-		const updateBrowserItems = browserItems.splice(changeBrowserItemIndex, 1, updateBrowserItem)
+		// const updateBrowserItems = browserItems.splice(changeBrowserItemIndex, 1, updateBrowserItem)
 
-		store.dispatch(deleteBrowserIconAction(updateBrowserItems))
+		// store.dispatch(deleteBrowserIconAction(updateBrowserItems))
 	}
 
 

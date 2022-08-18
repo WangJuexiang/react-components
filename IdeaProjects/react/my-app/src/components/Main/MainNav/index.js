@@ -43,32 +43,9 @@ export default class MainNav extends Component {
 		};
 	}
 
-	//下拉框文字匹配题提示
-	// search(e) {
-	// 	let keyword = e.target.value;
 
-	// 	if (keyword) {
-	// 		let listData = this.state.listData;
-	// 		let showlist = [];
-	// 		for (let i = 0; i < listData.length; i++) {
-	// 			if (listData[i].match(keyword)) {
-	// 				showlist = [...showlist, listData[i]]
-	// 			}
-	// 		}
-
-	// 		this.setState({
-	// 			showlist: showlist
-	// 		})
-	// 	}
-	// 	else {
-	// 		this.setState({
-	// 			showlist: this.state.listData
-	// 		})
-	// 	}
-	// }
 
 	handleSearch = (value) => {
-		console.log(value)
 		this.props.getSearchData(value)
 	}
 
@@ -78,12 +55,6 @@ export default class MainNav extends Component {
 	}
 
 	render() {
-
-		// // 搜索框条件渲染
-		// const Item = this.state.showlist.map((item, index) => {
-		// 	return <p key={index}>{item}</p>
-		// }
-		// )
 
 		return (
 			<div className='main-nav'>
