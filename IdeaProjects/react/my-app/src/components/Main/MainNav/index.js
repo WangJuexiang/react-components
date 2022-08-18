@@ -43,7 +43,29 @@ export default class MainNav extends Component {
 		};
 	}
 
+	//下拉框文字匹配题提示
+	// search(e) {
+	// 	let keyword = e.target.value;
 
+	// 	if (keyword) {
+	// 		let listData = this.state.listData;
+	// 		let showlist = [];
+	// 		for (let i = 0; i < listData.length; i++) {
+	// 			if (listData[i].match(keyword)) {
+	// 				showlist = [...showlist, listData[i]]
+	// 			}
+	// 		}
+
+	// 		this.setState({
+	// 			showlist: showlist
+	// 		})
+	// 	}
+	// 	else {
+	// 		this.setState({
+	// 			showlist: this.state.listData
+	// 		})
+	// 	}
+	// }
 
 	handleSearch = (value) => {
 		console.log(value)
@@ -51,49 +73,8 @@ export default class MainNav extends Component {
 	}
 
 	handleClickNav = (e) => {
-		// console.log('click ', e);
-
-		const { browserItems } = store.getState();
-		console.log(browserItems)
-		switch (e.key) {
-			case 'physical':
-
-				this.setState({ currentNav: 'physical' })
-				this.props.getNavData(this.state.currentNav)
-
-				const physicalBrowserItems = browserItems.filter((browserItemObj) => {
-
-					return browserItemObj.form === true
-				}
-				)
-				this.setState({ currentNav: 'physical' })
-				this.props.getNavData(this.state.currentNav)
-				console.log(physicalBrowserItems, this.state)
-
-				break;
-
-			case 'virtual':
-
-				this.setState({ currentNav: 'virtual' })
-				this.props.getNavData(this.state.currentNav)
-
-				const virtualBrowserItems = browserItems.filter((browserItemObj) => {
-					return browserItemObj.form === false
-				})
-				console.log(virtualBrowserItems, this.state)
-
-				break;
-
-			case 'all':
-
-				this.setState({ currentNav: 'all' });
-				this.props.getNavData(this.state.currentNav)
-				console.log(browserItems, this.state)
-				return browserItems;
-
-			default:
-				return browserItems;
-		}
+		this.setState({ currentNav: e.key })
+		this.props.getNavData(e.key)
 	}
 
 	render() {

@@ -40,6 +40,7 @@ export default class Main extends Component {
 	// }
 
 	getNavData = (msgNav) => {
+		console.log(msgNav, "msgNav")
 		this.setState({
 			getCurrentNav: msgNav
 		})
