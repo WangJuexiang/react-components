@@ -29,7 +29,6 @@ export default class MainItem extends Component {
 		}
 	}
 
-
 	handleClickAddPopup = (id, isPopupShowing) => {
 
 		const { browserItems } = store.getState();
@@ -49,8 +48,7 @@ export default class MainItem extends Component {
 
 		const { id, isPopupShowing, browserIcons, img, status } = this.props;
 
-		const { browserItems } = store.getState()
-
+		// const { browserItems } = store.getState()
 
 		return (
 			<div>
@@ -96,11 +94,10 @@ export default class MainItem extends Component {
 									browserIcons.length !== 0 &&
 
 									browserIcons.map(browserIcon => {
-										return <BrowserIcon key={browserIcon.id} {...browserIcon} parentId={id} />
+										return <BrowserIcon key={browserIcon.iconId} {...browserIcon} id={id} />
 									})
 								}
 							</span>
-
 
 							<Button className='main-item-deletebutton' onClick={() => this.handleClickDeny(id)} type="primary" size='middle' icon={<StopOutlined />} >
 								Deny

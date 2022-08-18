@@ -43,30 +43,9 @@ export default class MainNav extends Component {
 		};
 	}
 
-	search(e) {
-		let keyword = e.target.value;
 
-		if (keyword) {
-			let listData = this.state.listData;
-			let showlist = [];
-			for (let i = 0; i < listData.length; i++) {
-				if (listData[i].match(keyword)) {
-					showlist = [...showlist, listData[i]]
-				}
-			}
 
-			this.setState({
-				showlist: showlist
-			})
-		}
-		else {
-			this.setState({
-				showlist: this.state.listData
-			})
-		}
-	}
-
-	handleSerach = (value) => {
+	handleSearch = (value) => {
 		console.log(value)
 		this.props.getSearchData(value)
 	}
@@ -114,17 +93,16 @@ export default class MainNav extends Component {
 
 			default:
 				return browserItems;
-
 		}
 	}
 
 	render() {
 
-		// 搜索框条件渲染
-		const Item = this.state.showlist.map((item, index) => {
-			return <p key={index}>{item}</p>
-		}
-		)
+		// // 搜索框条件渲染
+		// const Item = this.state.showlist.map((item, index) => {
+		// 	return <p key={index}>{item}</p>
+		// }
+		// )
 
 		return (
 			<div className='main-nav'>
@@ -134,15 +112,13 @@ export default class MainNav extends Component {
 					<div className='main-nav-input'>
 						<Space direction="vertical">
 							<Search
-								onChange={this.search.bind(this)}
-								placeholder={'输入操作系统名称'}
-								onSearch={this.handleSerach}
+								placeholder={'Please enter name'}
+								onSearch={this.handleSearch}
 								size="large"
 								style={{
 									width: 200,
 								}}
 							/>
-							<ul className='input-ul'>{Item}</ul>
 						</Space>
 
 					</div>

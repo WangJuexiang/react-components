@@ -27,7 +27,7 @@ export default class Main extends Component {
 		super(props);
 		this.state = {
 			getCurrentNav: 'all',
-			getCurrentKeyword: 'every'
+			getCurrentKeyword: 'b'
 		}
 	}
 
@@ -57,39 +57,61 @@ export default class Main extends Component {
 
 		const { browserItems } = store.getState()
 
-		console.log('父组件状态:', this.state.getCurrentNav, this.state.getCurrentKeyword, browserItems, browserItems.browserIcons,)
+		console.log('父组件状态:', this.state.getCurrentNav, this.state.getCurrentKeyword, browserItems)
 	}
 
 	render() {
 		//nav条件渲染
 		const { browserItems } = store.getState();
 
-
+		//属性值为idle的数组
 		const idleBrowserItems = browserItems.filter((browserItemObj) => {
 			return browserItemObj.status === true
 		}
 		)
 
+		//属性值为buidling的数组
 		const buildingBrowserItems = browserItems.filter((browserItemObj) => {
 			return browserItemObj.status === false
 		}
 		)
 
+		//属性值为virtual的数组
 		const virtualBrowserItems = browserItems.filter((browserItemObj) => {
 			return browserItemObj.form === false
 		})
+
+		//属性值为physical的数组
 		const physicalBrowserItems = browserItems.filter((browserItemObj) => {
 
 			return browserItemObj.form === true
 		})
 
-		//keyword条件渲染
+		//key 条件渲染
 
-		// const windowsBrowserItems = browserItems.filter((browserItemObj) => {
-		// 	return browserItemObj.name = 'windows'
-		// },
+		//将输入内容赋值给keyWord变量
 
-		// )
+		const keyWord = this.state.getCurrentKeyword
+
+		//筛选出含输入内容的数组
+		const allSearchBrowserItems = browserItems.filter((browserItemObj) => {
+			return browserItemObj.name.includes(keyWord);
+		})
+
+		const physicalSearchBrowserItems = physicalBrowserItems.filter((browserItemObj) => {
+			return browserItemObj.name.includes(keyWord);
+		})
+
+		const virtualSearchBrowserItems = virtualBrowserItems.filter((browserItemObj) => {
+			return browserItemObj.name.includes(keyWord);
+		})
+
+		// const searchBrowserItems = browserItems.filter((browserItemObj) => {
+		// 	return browserItems.includes(searchBrowserItems)
+		// });
+
+		console.log(keyWord, allSearchBrowserItems)
+
 
 		return (
 
@@ -102,7 +124,6 @@ export default class Main extends Component {
 					{/* 点击打印测试区块  */}
 					<div className='idle' onClick={this.clickTest}>
 						<MainHeaderStatus number={idleBrowserItems.length} text={"Idle"} />
-
 
 					</div>
 					<div className='form-figure'>
@@ -119,30 +140,41 @@ export default class Main extends Component {
 				<MainNav getNavData={this.getNavData.bind(this)} getSearchData={this.getSearchData.bind(this)} />
 
 				<div>
+
 					{
-						this.state.getCurrentNav === 'all' ?
+						this.state.getCurrentNav === 'all' &&
 
-							browserItems.map(browserItem => {
-								return <MainItem key={browserItem.id} {...browserItem} />
-							})
+						allSearchBrowserItems.map((browserItem) => {
+							return <MainItem key={browserItem.id} {...browserItem} />
 
-							:
 
-							this.state.getCurrentNav === 'physical' ?
+						})
+						// browserItems.map(browserItem => {
+						// 	return <MainItem key={browserItem.id} {...browserItem} />
+						// })
+					}
+				</div>
 
-								physicalBrowserItems.map(browserItem => {
-									return <MainItem key={browserItem.id} {...browserItem} />
-								})
+				<div>
+					{
+						this.state.getCurrentNav === 'physical' &&
 
-								:
+						physicalSearchBrowserItems.map(browserItem => {
+							return <MainItem key={browserItem.id} {...browserItem} />
+						})
+					}
+				</div>
 
-								virtualBrowserItems.map(browserItem => {
-									return <MainItem key={browserItem.id} {...browserItem} />
-								})
+				<div>
+					{
+						this.state.getCurrentNav === 'virtual' &&
+						virtualSearchBrowserItems.map(browserItem => {
+							return <MainItem key={browserItem.id} {...browserItem} />
+						})
 					}
 
 				</div>
-			</div>
+			</div >
 		)
 	}
 }

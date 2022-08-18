@@ -19,30 +19,11 @@ const initState = {
 			ip: "192.168.1.101",
 			url: "bjstdmngbgr01.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
-			//["Chrome,"Firefox","Safari","Ubuntu"]
 			browserIcons: [
 				{
-					id: nanoid(),
+					IconId: nanoid(),
 					name: 'Chrome',
 				},
-
-				// {
-				// 	id: nanoid(),
-				// 	name: 'Firefox',
-				// 	show: false
-				// },
-
-				// {
-				// 	id: nanoid(),
-				// 	name: 'Safari',
-				// 	show: false
-				// },
-
-				// {
-				// 	id: nanoid(),
-				// 	name: 'Ubuntu',
-				// 	show: false
-				// },
 			],
 		},
 
@@ -51,14 +32,14 @@ const initState = {
 			name: 'bjstdmngbgr02.thoughtworks.com',
 			img: Windows,
 			form: true,
-			status: true,
+			status: false,
 			isPopupShowing: false,
 			ip: "192.168.1.102",
 			url: "bjstdmngbgr02.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					id: nanoid(),
+					IconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
@@ -76,7 +57,7 @@ const initState = {
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					id: nanoid(),
+					IconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
@@ -94,7 +75,7 @@ const initState = {
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					id: nanoid(),
+					IconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
@@ -105,18 +86,17 @@ const initState = {
 			name: 'bjstdmngbgr05.thoughtworks.com',
 			img: Suse,
 			form: true,
-			status: false,
+			status: true,
 			isPopupShowing: false,
 			ip: "192.168.1.105",
 			url: "bjstdmngbgr05.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					id: nanoid(),
+					IconId: nanoid(),
 					name: 'Chrome',
 				},
 			]
-			,
 		},
 
 		{
@@ -124,20 +104,19 @@ const initState = {
 			name: 'bjstdmngbgr06.thoughtworks.com',
 			img: CentOS,
 			form: true,
-			status: false,
+			status: true,
 			isPopupShowing: false,
 			ip: "192.168.1.106",
 			url: "bjstdmngbgr06.thoughtworks.com",
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					id: nanoid(),
+					IconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
 		},
 	],
-
 
 };
 
@@ -196,5 +175,4 @@ export default function browserlistReducer(preState = initState, action) {
 			return preState;
 
 	}
-
 }
