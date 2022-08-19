@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
-import store from '../../../redux/store';
+// import store from '../../../redux/store';
 // import { selectPhysicalAction, selectVirtualAction, selectAllAction } from '../../../redux/browserlist_action';
 // import { Button } from 'antd';
 import "antd/dist/antd.css";

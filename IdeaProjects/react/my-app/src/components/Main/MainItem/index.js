@@ -13,6 +13,13 @@ import "./index.css"
 
 export default class MainItem extends Component {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			currentAddIconName: '',
+		}
+	}
+
 
 	handleClickDeny = (id) => {
 
@@ -41,6 +48,13 @@ export default class MainItem extends Component {
 
 	}
 
+	getInputValue = (nameValue) => {
+
+		this.setState({
+			currentAddIconName: nameValue
+		})
+
+	}
 
 	render() {
 
@@ -87,15 +101,15 @@ export default class MainItem extends Component {
 
 							<Button className='main-item-addbutton' onClick={() => this.handleClickAddPopup(id, isPopupShowing)} type="primary" shape="default" size='small' icon={<PlusOutlined />} />
 
-							<span>
+							<div className='main-item-browsericons'>
 								{
 									browserIcons.length !== 0 &&
 
 									browserIcons.map(browserIcon => {
-										return <BrowserIcon key={browserIcon.iconId} {...browserIcon} id={id} />
+										return <BrowserIcon key={browserIcon.iconId} {...browserIcon} id={id} nameValue={this.state.currentAddIconName} />
 									})
 								}
-							</span>
+							</div>
 
 							<Button className='main-item-deletebutton' onClick={() => this.handleClickDeny(id)} type="primary" size='middle' icon={<StopOutlined />} >
 								Deny
@@ -103,7 +117,7 @@ export default class MainItem extends Component {
 
 							{isPopupShowing &&
 
-								<Popup id={id} isPopupShowing={isPopupShowing} />
+								<Popup id={id} isPopupShowing={isPopupShowing} getInputValue={this.getInputValue.bind(this)} />
 							}
 						</div>
 

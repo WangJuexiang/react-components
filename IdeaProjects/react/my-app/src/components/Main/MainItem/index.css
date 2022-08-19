@@ -82,6 +82,12 @@
 
 }
 
+.main-item-browsericons {
+	display: flex
+}
+
+
+
 .main-item-addbutton {
 	margin-left: -2px;
 	background-color: #00B4CF;

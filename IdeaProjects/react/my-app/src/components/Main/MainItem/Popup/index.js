@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { nanoid } from 'nanoid'
 import store from '../../../../redux/store';
-import { closePopupAction } from '../../../../redux/browserlist_action';
+import { handleClickAddResourceAction, closePopupAction } from '../../../../redux/browserlist_action';
 import { Button } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import "./index.css"
@@ -35,23 +35,31 @@ export default class Popup extends Component {
 	// }
 
 
-	handleClickAddResource = (event) => {
+	handleClickAddResource = (id, event) => {
 
-		console.log('addresources')
+		const { target } = event;
 
-		const { target } = event
+		const { browserItems } = store.getState()
 
-		if (target.value.trim() === "") {
-			alert("Cannot accept null");
-			return;
-		}
+		//定义即将添加的browserIconObj
 
 		const browserIconObj = { id: nanoid(), name: target.value };
 
-		this.props.addBrowserIcon(browserIconObj)
+		this.props.getInputValue(target.value)
+
+
+
+		//将输入的value值push到browserIcons属性数组中
+
+		browserItems.map((browserItemObj) => {
+			if (browserItemObj.id === id) {
+				browserItemObj.browserIcons.push(browserIconObj)
+			}
+		}
+		)
+		store.dispatch(handleClickAddResourceAction(browserItems))
 
 	}
-
 
 	render() {
 
@@ -66,9 +74,9 @@ export default class Popup extends Component {
 					<p>Separate multiple resource name with commas</p>
 					<Button className='popup-close' type="link" icon={<CloseOutlined />} size={'large'} onClick={() => this.handleClickClosePopup(id, isPopupShowing)} ></Button>
 				</div>
-				<input className='popup-input' ></input>
+				<input className='popup-input' type="text" placeholder="Please enter the browser"></input>
 				<div className='popup-button'>
-					<Button className='popup-add' type="primary" onClick={this.handleClickAddResource}>Add Resources</Button>
+					<Button className='popup-add' type="primary" onClick={(event) => this.handleClickAddResource(id, event)}>Add Resources</Button>
 					<Button className='popup-cancel' type='primary' onClick={() => this.handleClickClosePopup(id, isPopupShowing)}>Cancel</Button>
 				</div>
 			</div>

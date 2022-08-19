@@ -134,7 +134,7 @@ export default function browserlistReducer(preState = initState, action) {
 
 			};
 
-		case "addBrowserIcon":
+		case "handleClickAddResource":
 
 			return {
 				...preState,
