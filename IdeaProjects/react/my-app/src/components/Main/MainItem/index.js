@@ -13,13 +13,6 @@ import "./index.css"
 
 export default class MainItem extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			currentAddIconName: '',
-		}
-	}
-
 
 	handleClickDeny = (id) => {
 
@@ -45,14 +38,6 @@ export default class MainItem extends Component {
 
 		});
 		store.dispatch(addPopupAction(showPopupBrowserItems))
-
-	}
-
-	getInputValue = (nameValue) => {
-
-		this.setState({
-			currentAddIconName: nameValue
-		})
 
 	}
 
@@ -106,7 +91,7 @@ export default class MainItem extends Component {
 									browserIcons.length !== 0 &&
 
 									browserIcons.map(browserIcon => {
-										return <BrowserIcon key={browserIcon.iconId} {...browserIcon} id={id} nameValue={this.state.currentAddIconName} />
+										return <BrowserIcon key={browserIcon.iconId} {...browserIcon} id={id} />
 									})
 								}
 							</div>
@@ -117,7 +102,7 @@ export default class MainItem extends Component {
 
 							{isPopupShowing &&
 
-								<Popup id={id} isPopupShowing={isPopupShowing} getInputValue={this.getInputValue.bind(this)} />
+								<Popup id={id} isPopupShowing={isPopupShowing} />
 							}
 						</div>
 

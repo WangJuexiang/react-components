@@ -7,7 +7,6 @@ import "./index.css"
 export default class BrowserIcon extends Component {
 
 
-
 	deleteBrowserIcon = (id, iconId, browserIcons) => {
 
 		const { browserItems } = store.getState()

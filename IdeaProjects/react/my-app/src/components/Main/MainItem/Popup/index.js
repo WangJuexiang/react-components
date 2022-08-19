@@ -8,6 +8,14 @@ import "./index.css"
 
 
 export default class Popup extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			currentAddIconName: ''
+		}
+	}
+
+
 
 	handleClickClosePopup = (id, isPopupShowing) => {
 
@@ -23,16 +31,6 @@ export default class Popup extends Component {
 		store.dispatch(closePopupAction(hidePopupBrowserItems))
 	}
 
-	// addBrowserIcon = (browserIconObj) => {
-	// 	const { browserItems } = store.getState();
-
-	// 	const newBrowserItems = browserItems.map((browserItemObj) => {
-	// 		if (browserItemObj.id === id) return { ...browserItemObj, browserIcons }
-	// 	}
-	// 	)
-	// 	store.dispatch(addBrowserIconAction(newBrowserItems));
-
-	// }
 
 
 	handleClickAddResource = (id, event) => {
@@ -43,10 +41,9 @@ export default class Popup extends Component {
 
 		//定义即将添加的browserIconObj
 
-		const browserIconObj = { id: nanoid(), name: target.value };
+		const browserIconObj = { id: nanoid(), name: this.state.currentAddIconName };
 
-		this.props.getInputValue(target.value)
-
+		console.log(browserIconObj, event)
 
 
 		//将输入的value值push到browserIcons属性数组中
@@ -61,6 +58,14 @@ export default class Popup extends Component {
 
 	}
 
+	inputChange = (e) => {
+		console.log(e.target.value)
+		this.setState({
+			currentAddIconName: e.target.value
+		})
+
+	}
+
 	render() {
 
 		const { id, isPopupShowing } = this.props;
@@ -72,9 +77,10 @@ export default class Popup extends Component {
 				<div className='popup-triangle'></div>
 				<div className='popup-header'>
 					<p>Separate multiple resource name with commas</p>
+
 					<Button className='popup-close' type="link" icon={<CloseOutlined />} size={'large'} onClick={() => this.handleClickClosePopup(id, isPopupShowing)} ></Button>
 				</div>
-				<input className='popup-input' type="text" placeholder="Please enter the browser"></input>
+				<input className='popup-input' type="text" placeholder="Please enter the browser" onChange={this.inputChange}></input>
 				<div className='popup-button'>
 					<Button className='popup-add' type="primary" onClick={(event) => this.handleClickAddResource(id, event)}>Add Resources</Button>
 					<Button className='popup-cancel' type='primary' onClick={() => this.handleClickClosePopup(id, isPopupShowing)}>Cancel</Button>
