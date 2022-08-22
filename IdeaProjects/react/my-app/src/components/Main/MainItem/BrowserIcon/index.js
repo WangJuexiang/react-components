@@ -11,9 +11,10 @@ export default class BrowserIcon extends Component {
 
 		const { browserItems } = store.getState()
 
+		console.log('iconId:', iconId)
+
 		browserItems.map((browserItemObj) => {
 			if (browserItemObj.id === id) {
-
 				browserItemObj.browserIcons.pop()
 			}
 		}
@@ -28,7 +29,7 @@ export default class BrowserIcon extends Component {
 		return (
 			<div className='main-item-browser-icon'>
 				{name}
-				<DeleteOutlined style={{ fontSize: 'large' }} onClick={() => this.deleteBrowserIcon(id, browserIcons, iconId)} />
+				<DeleteOutlined style={{ fontSize: 'large' }} onClick={() => this.deleteBrowserIcon(id, iconId, browserIcons,)} />
 
 			</div >
 		)

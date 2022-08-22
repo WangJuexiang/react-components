@@ -8,7 +8,6 @@ export default class MainHeaderStatistics extends Component {
 		return (
 			<div>
 				<div className='main-header-statistics'>
-
 					<div className='main-header-statistics-all'>
 						<div>
 							{this.props.all}

@@ -16,13 +16,13 @@ export default class Aside extends Component {
 	// 	]
 	// }
 
-	state = { mouse: false };
+	// state = { mouse: false };
 
-	handleMouse = (flag) => {
-		return () => {
-			this.setState({ mouse: flag })
-		};
-	};
+	// handleMouse = (flag) => {
+	// 	return () => {
+	// 		this.setState({ mouse: flag })
+	// 	};
+	// };
 
 	// handleMouseOver = () => {
 	// 	document.getElementById('dashboard').className = 'dashboard-onmouseover';
@@ -34,7 +34,7 @@ export default class Aside extends Component {
 
 
 	render() {
-		const { mouse } = this.state;
+		// const { mouse } = this.state;
 		return (
 			<div className='aside'>
 				<div>
@@ -42,8 +42,9 @@ export default class Aside extends Component {
 					{/* <a href="http://www.w3school.com.cn" target={'_blank'} onMouseEnter={this.handleMouse(true)} onMouseLeave={this.handleMouse(false)}	> */}
 
 					<a href="http://www.w3school.com.cn" target={'_blank'}	>
+						{/* <div className={mouse ? "dashboard-onmouseover" : "dashboard-default"}> */}
+						<div className={"dashboard-default"}>
 
-						<div className={mouse ? "dashboard-onmouseover" : "dashboard-default"}>
 							<DashboardOutlined style={{ color: "#FFFFFF", fontSize: "150%" }} />
 							<AsideNav content={'DASHBOARD'} />
 						</div>

@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { CopyrightOutlined } from '@ant-design/icons';
-
 import "./index.css"
 
 export default class Footer extends Component {

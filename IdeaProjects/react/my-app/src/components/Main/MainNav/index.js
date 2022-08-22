@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
 // import store from '../../../redux/store';
-// import { selectPhysicalAction, selectVirtualAction, selectAllAction } from '../../../redux/browserlist_action';
 // import { Button } from 'antd';
 import "antd/dist/antd.css";
 import { TableOutlined, InsertRowLeftOutlined } from '@ant-design/icons';
@@ -31,19 +30,9 @@ export default class MainNav extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			listData: [
-				'windows',
-				'ubuntu',
-				'debin',
-				'suse',
-				'centos'
-			],
-			showlist: [],
 			currentNav: 'all'
 		};
 	}
-
-
 
 	handleSearch = (value) => {
 		this.props.getSearchData(value)
