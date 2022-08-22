@@ -13,6 +13,7 @@ export default class BrowserIcon extends Component {
 
 		browserItems.map((browserItemObj) => {
 			if (browserItemObj.id === id) {
+
 				browserItemObj.browserIcons.pop()
 			}
 		}

@@ -64,7 +64,7 @@ export default class MainNav extends Component {
 					<div className='main-nav-input'>
 						<Space direction="vertical">
 							<Search
-								placeholder={'Please enter name'}
+								placeholder={'Please enter text'}
 								onSearch={this.handleSearch}
 								size="large"
 								style={{

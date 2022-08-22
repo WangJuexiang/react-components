@@ -15,35 +15,25 @@ export default class Popup extends Component {
 		}
 	}
 
-
-
 	handleClickClosePopup = (id, isPopupShowing) => {
 
 		const { browserItems } = store.getState();
 
-
 		const hidePopupBrowserItems = browserItems.map((browserItemObj) => {
 			if (browserItemObj.id === id) return { ...browserItemObj, isPopupShowing: !isPopupShowing };
 			else return browserItemObj;
-
 		});
-
 		store.dispatch(closePopupAction(hidePopupBrowserItems))
 	}
 
 
-
-	handleClickAddResource = (id, event) => {
-
-		const { target } = event;
+	handleClickAddResource = (id) => {
 
 		const { browserItems } = store.getState()
 
 		//定义即将添加的browserIconObj
 
 		const browserIconObj = { id: nanoid(), name: this.state.currentAddIconName };
-
-		console.log(browserIconObj, event)
 
 
 		//将输入的value值push到browserIcons属性数组中
@@ -69,8 +59,6 @@ export default class Popup extends Component {
 	render() {
 
 		const { id, isPopupShowing } = this.props;
-
-		// const { browserItems } = store.getState()
 
 		return (
 			<div className='popup-show'>

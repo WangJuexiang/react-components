@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AsideNav from './Aside_Nav';
-import AsideHistory from './Aside_History';
+import AsideNav from './AsideNav';
+import AsideHistory from './AsideHistory';
 import { DashboardOutlined, ClusterOutlined, IdcardOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import "./index.css"
 
@@ -39,7 +39,9 @@ export default class Aside extends Component {
 			<div className='aside'>
 				<div>
 
-					<a href="http://www.w3school.com.cn" target={'_blank'} onMouseEnter={this.handleMouse(true)} onMouseLeave={this.handleMouse(false)}	>
+					{/* <a href="http://www.w3school.com.cn" target={'_blank'} onMouseEnter={this.handleMouse(true)} onMouseLeave={this.handleMouse(false)}	> */}
+
+					<a href="http://www.w3school.com.cn" target={'_blank'}	>
 
 						<div className={mouse ? "dashboard-onmouseover" : "dashboard-default"}>
 							<DashboardOutlined style={{ color: "#FFFFFF", fontSize: "150%" }} />

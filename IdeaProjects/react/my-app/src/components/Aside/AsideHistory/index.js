@@ -19,9 +19,6 @@ export default class AsideHistory extends Component {
 					<li><a href="http://www.w3school.com.cn" target={'_blank'} >bsjtdmngbgr11/Acceptance_test </a></li>
 					<li><a href="http://www.w3school.com.cn" target={'_blank'} >bsjtdmngbgr12/Acceptance_test </a></li>
 					<li><a href="http://www.w3school.com.cn" target={'_blank'} >bsjtdmngbgr13/Acceptance_test </a></li>
-
-
-
 				</ul>
 			</div>
 		)

@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 import store from '../../redux/store';
-// import { deleteItemAction, addBrowserIconAction } from '../../redux/browserlist_action';
-
 import MainHeaderStatus from './MainHeader/MainHeaderStatus';
 import MainNav from './MainNav';
 import MainItem from './MainItem';
 import MainHeaderStatistics from './MainHeader/MainHeaderStatistics';
-
-// import Windows from '../../img/windows.png';
-// import Ubuntu from '../../img/ubuntu.png';
-// import Debin from '../../img/debin.png';
-// import Suse from '../../img/suse.png';
-// import CentOS from '../../img/cent_os.png';
-
 import "./index.css"
 
 export default class Main extends Component {
@@ -30,14 +21,6 @@ export default class Main extends Component {
 			getCurrentKeyword: 'b'
 		}
 	}
-
-	// addBrowserIcon = (browserIcon) => {
-
-	// 	const { browsericons } = store.getState();
-	// 	const newBrowserIcons = [browserIcon, ...browsericons];
-	// 	store.dispatch(addBrowserIconAction(newBrowserIcons));
-
-	// }
 
 	getNavData = (msgNav) => {
 		this.setState({
@@ -106,11 +89,6 @@ export default class Main extends Component {
 			return browserItemObj.name.includes(keyWord);
 		})
 
-		// const searchBrowserItems = browserItems.filter((browserItemObj) => {
-		// 	return browserItems.includes(searchBrowserItems)
-		// });
-
-
 
 		return (
 
@@ -142,15 +120,9 @@ export default class Main extends Component {
 
 					{
 						this.state.getCurrentNav === 'all' &&
-
 						allSearchBrowserItems.map((browserItem) => {
 							return <MainItem key={browserItem.id} {...browserItem} />
-
-
 						})
-						// browserItems.map(browserItem => {
-						// 	return <MainItem key={browserItem.id} {...browserItem} />
-						// })
 					}
 				</div>
 
@@ -171,7 +143,6 @@ export default class Main extends Component {
 							return <MainItem key={browserItem.id} {...browserItem} />
 						})
 					}
-
 				</div>
 			</div >
 		)

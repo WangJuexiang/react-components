@@ -3,11 +3,9 @@ import Popup from './Popup';
 import BrowserIcon from './BrowserIcon';
 import store from '../../../redux/store';
 import { deleteItemAction, addPopupAction } from '../../../redux/browserlist_action';
-
 import { DesktopOutlined, ExclamationCircleOutlined, FolderOutlined, PlusOutlined, StopOutlined } from '@ant-design/icons';
 import { Image } from 'antd';
 import { Button } from 'antd';
-
 import "./index.css"
 
 

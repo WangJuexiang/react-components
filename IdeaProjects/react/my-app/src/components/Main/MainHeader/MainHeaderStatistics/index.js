@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
-// import store from '../../../../redux/store';
 import "./index.css"
 
 
 export default class MainHeaderStatistics extends Component {
 	render() {
-
-		// const { browserItems } = store.getState();
-		// const physicalBrowserItems = browserItems.filter((browserItem) => {
-		// 	return !browserItem.form
-		// })
-		// const virtualBrowserItems = browserItems.filter((browserItem) => {
-		// 				return browserItem.form
-		// 			})
 
 		return (
 			<div>
@@ -34,9 +25,7 @@ export default class MainHeaderStatistics extends Component {
 						<div className='main-header-statistics-physical-figure'>
 							{this.props.physicalFigure}
 						</div>
-
 					</div>
-
 
 					<div className='main-header-statistics-virtual'>
 						<div>

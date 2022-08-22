@@ -21,7 +21,7 @@ const initState = {
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					IconId: nanoid(),
+					iconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
@@ -39,7 +39,7 @@ const initState = {
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					IconId: nanoid(),
+					iconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
@@ -57,7 +57,7 @@ const initState = {
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					IconId: nanoid(),
+					iconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
@@ -75,7 +75,7 @@ const initState = {
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					IconId: nanoid(),
+					iconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
@@ -85,7 +85,8 @@ const initState = {
 			id: '05',
 			name: 'bjstdmngbgr05.thoughtworks.com',
 			img: Suse,
-			form: true,
+			// form: true,
+			form: false,
 			status: true,
 			isPopupShowing: false,
 			ip: "192.168.1.105",
@@ -93,7 +94,7 @@ const initState = {
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					IconId: nanoid(),
+					iconId: nanoid(),
 					name: 'Chrome',
 				},
 			]
@@ -103,7 +104,8 @@ const initState = {
 			id: '06',
 			name: 'bjstdmngbgr06.thoughtworks.com',
 			img: CentOS,
-			form: true,
+			// form: true,
+			form: false,
 			status: true,
 			isPopupShowing: false,
 			ip: "192.168.1.106",
@@ -111,7 +113,7 @@ const initState = {
 			location: "/var/lib/cruise-agent",
 			browserIcons: [
 				{
-					IconId: nanoid(),
+					iconId: nanoid(),
 					name: 'Chrome',
 				},
 			],
@@ -131,7 +133,6 @@ export default function browserlistReducer(preState = initState, action) {
 			return {
 				...preState,
 				browserItems: data
-
 			};
 
 		case "handleClickAddResource":

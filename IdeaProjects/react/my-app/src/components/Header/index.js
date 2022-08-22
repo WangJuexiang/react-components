@@ -28,13 +28,11 @@ const menu = (
 				icon: <ImportOutlined />,
 			},
 
-
 		]}
 	/>
 );
 
 export default class Header extends Component {
-
 
 
 	render() {
@@ -43,12 +41,10 @@ export default class Header extends Component {
 				<img className='cruise-logo' src={Curise} alt='CRUISE' />
 
 				<Dropdown overlay={menu} trigger={['click']}>
-					{/* <a onClick={(e) => e.preventDefault()}> */}
 					<Space>
 						<img className='user' src={Avatar} alt='User' overlay={menu} />
 						<DownOutlined />
 					</Space>
-					{/* </a> */}
 				</Dropdown>
 			</div >
 
