@@ -1,4 +1,4 @@
-import LoginPage from './components/LoginPage';
+// import LoginPage from './components/LoginPage';
 // import HomePage from './components/HomePage';
 import CommentPage from './components/CommentPage';
 
@@ -7,9 +7,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <LoginPage />
+      {/* <LoginPage /> */}
       {/* <HomePage /> */}
-      {/* <CommentPage /> */}
+      <CommentPage />
 
 
 

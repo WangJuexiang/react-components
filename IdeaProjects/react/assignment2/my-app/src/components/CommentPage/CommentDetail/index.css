@@ -1,0 +1,13 @@
+.comment-detail-body {
+	display: flex;
+	justify-content: space-between;
+	height: 80px;
+}
+
+.delete-button {
+	margin-right: 50px
+}
+
+.user-detail {
+	margin-left: 50px
+}
