@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import './index.css'
 
 
-export default class CommentDetail extends Component {
+export default class CommentList extends Component {
 	render() {
 		return (
 			<div className='comment-detail-body'>

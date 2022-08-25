@@ -1,0 +1,24 @@
+aside {
+	background-color: rgb(54, 54, 59);
+	height: 750px;
+	width: 200px;
+	color: white
+}
+
+.homepage {
+	display: flex;
+	padding-left: 30px;
+	padding-top: 20px;
+}
+
+.hotspot {
+	display: flex;
+	padding-left: 30px;
+	padding-top: 20px
+}
+
+.usercenter {
+	display: flex;
+	padding-left: 30px;
+	padding-top: 20px
+}

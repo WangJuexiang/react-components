@@ -1,5 +1,5 @@
-import LoginPage from './components/LoginPage';
-// import HomePage from './components/HomePage';
+// import LoginPage from './components/LoginPage';
+import HomePage from './components/HomePage';
 // import CommentPage from './components/CommentPage';
 
 import './App.css';
@@ -7,8 +7,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <LoginPage />
-      {/* <HomePage /> */}
+      {/* <LoginPage /> */}
+      <HomePage />
       {/* <CommentPage /> */}
 
 
