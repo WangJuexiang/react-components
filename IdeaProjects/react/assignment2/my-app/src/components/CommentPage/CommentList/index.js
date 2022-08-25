@@ -17,7 +17,7 @@ export default class CommentList extends Component {
 					</div>
 
 				</div>
-				<Button className='delete-button' type="text">delete</Button>
+				<Button className='delete-button' type="text">Delete</Button>
 
 
 			</div>

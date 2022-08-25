@@ -47,7 +47,7 @@ export default class HomePage extends Component {
 									<Input placeholder="Please input the title" />
 								</div>
 								<div className='content-input'>
-									<TextArea placeholder='What do you want to write...' rows={18} />
+									<TextArea placeholder='What do you want to write...' rows={21} />
 								</div>
 
 								<div className='content-button'>

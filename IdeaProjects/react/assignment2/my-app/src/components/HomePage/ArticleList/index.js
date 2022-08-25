@@ -20,11 +20,11 @@ export default class ArticleList extends Component {
 				</div>
 				<div className='article-list-button'>
 					<div className='edit-button'>
-						<Button type="text">edit</Button>
+						<Button type="text">Edit</Button>
 
 					</div>
 					<div className='delete-button'>
-						<Button type="text">delete</Button>
+						<Button type="text">Delete</Button>
 
 					</div>
 
