@@ -1,3 +1,7 @@
+.homepage {
+	display: flex;
+}
+
 aside {
 	background-color: rgb(54, 54, 59);
 	height: 750px;
@@ -21,4 +25,51 @@ aside {
 	display: flex;
 	padding-left: 30px;
 	padding-top: 20px
+}
+
+.homepage-body {
+	width: 1300px;
+	background-color: rgb(234, 228, 228);
+}
+
+header {
+	height: 50px;
+	background-color: rgb(54, 54, 59);
+	color: white
+}
+
+.homepage-main {
+	display: flex;
+}
+
+.list {
+	margin-top: 50px;
+	margin-left: 50px;
+	margin-right: 30px;
+	height: 600px;
+	width: 500px;
+	background-color: white;
+}
+
+
+
+.content {
+	margin-top: 50px;
+	height: 500px;
+	width: 600px;
+}
+
+.title-input {
+	margin-top: 20px;
+	margin-bottom: 40px
+}
+
+.content-button {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px
+}
+
+.cancel-button {
+	margin-right: 5px
 }
