@@ -4,14 +4,6 @@
 	display: flex;
 }
 
-
-.article-content {
-	height: 298px;
-	margin-left: 20px;
-	margin-right: 20px;
-	border: 1px solid black;
-}
-
 .comment-content {
 	height: 400px;
 	background-color: rgb(228, 224, 224);
@@ -19,9 +11,6 @@
 	margin-right: 20px;
 }
 
-.comment-figure {
-	padding-top: 40px
-}
 
 .user-operator {
 	display: flex;

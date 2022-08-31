@@ -7,7 +7,7 @@ import { Input } from 'antd';
 import './index.css'
 const { TextArea } = Input;
 
-export default class HomePage extends Component {
+export default class Home extends Component {
 	render() {
 		return (
 			<div>

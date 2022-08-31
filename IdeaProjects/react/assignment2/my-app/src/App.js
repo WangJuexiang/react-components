@@ -1,20 +1,22 @@
-// import LoginPage from './components/LoginPage';
-import HomePage from './components/HomePage';
-// import CommentPage from './components/CommentPage';
-
+import Login from './components/Login';
+import { BrowserRouter, Route, Link, } from 'react-router-dom'
+import Home from './components/Home';
+import Comment from './components/Comment';
 import './App.css';
 
-function App() {
+
+const App = () => {
   return (
+    // <BrowserRouter>
     <div className="App">
-      {/* <LoginPage /> */}
-      <HomePage />
-      {/* <CommentPage /> */}
-
-
-
-
+      {/* <Login /> */}
+      {/* <Route path='/home' component={Home} /> */}
+      {/* <Route path='/comment' component={Comment} /> */}
+      <Home />
+      {/* <Comment /> */}
     </div >
+    // </BrowserRouter>
+
   );
 }
 

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Button } from 'antd';
 import { Input } from 'antd';
 import User from '../UI/img/user.png'
-import CommentDetail from './CommentDetail';
+import CommentList from './CommentList';
 import './index.css'
 const { TextArea } = Input;
 
 
 
-export default class CommentPage extends Component {
+export default class Comment extends Component {
 	render() {
 		return (
 			<div className='commentpage-body'>
@@ -26,8 +26,8 @@ export default class CommentPage extends Component {
 					</div>
 					<section className='comment-content'>
 						<p className='comment-figure'>2 replies</p>
-						<CommentDetail />
-						<CommentDetail />
+						<CommentList />
+						<CommentList />
 						<div className='user-operator'>
 							<img className='user-img' src={User} alt='weibo' />
 
